@@ -1,0 +1,27 @@
+.toDoItem-wrapper{
+    margin: 20px auto;
+    padding: 6px 8px 2px;
+    width: 70%;
+    background-color: #fff;
+    border-radius: 4px;
+    align-self: center;
+}
+.header{
+    margin: 0 0 0 10px;
+}
+.description-time-wrapper {
+    align-items: center;
+}
+.description{
+    margin: 0 0 0 10px;
+}
+.badges {
+
+}
+.btn-edit, .btn-remove{
+    outline: none;
+    border-width: 0px;
+    width: 40px;
+    height: 40px;  
+    background-color:  #fff;  
+}
