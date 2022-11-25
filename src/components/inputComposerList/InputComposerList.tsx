@@ -2,21 +2,19 @@ import { useState } from 'react';
 import './inputComposerList.css';
 
 type InputComposerListProps = {
-    onChange?: () => void;
+    onChangeText?: (text: any) => void ;
     onPress?: () => void;
+    value?: string;
 }
 
 const InputComposerList: React.FC<InputComposerListProps> = (props) => {
-    const [todo, setTodo] = useState("");
     return(
         <div className="input-wrapper d-flex justify-content-center">
             <input className="input" 
                 type="text"
                 placeholder='Create a new todo'
-                value={todo}
-                onChange={e => {
-                    setTodo(e.target.value)
-                }}
+                value={props.value}
+                onChange={props.onChangeText}
             />
             <button  
                 type="submit" 
