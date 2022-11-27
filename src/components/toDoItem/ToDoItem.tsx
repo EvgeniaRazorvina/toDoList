@@ -7,6 +7,7 @@ const iconRemove = require('../../images/trash.png');
 type ToDoItemProps = {
     value: string;
     onPressRemoval?: () => void;
+    onPressEdit?: () => void;
 }
 
 const ToDoItem: React.FC<ToDoItemProps> = props => {
@@ -15,10 +16,9 @@ const ToDoItem: React.FC<ToDoItemProps> = props => {
             <div className='description-time-wrapper  d-flex justify-content-between'>
                 <input type='checkbox'/>
                 <p className="description">{props.value}</p>
-                <time>28.12.22</time>
             </div>
             <div className="badjes">
-                <button className='btn-edit'>
+                <button className='btn-edit' onClick={props.onPressEdit}>
                     <img src={iconEdit} alt="editing" />
                 </button>
                 <button className='btn-remove' 
