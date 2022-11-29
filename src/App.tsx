@@ -1,9 +1,9 @@
-import { useState } from 'react';
+
+import { useEffect, useState } from 'react';
 import './app.css';
 import InputComposerList from './components/inputComposerList/InputComposerList';
 import ToDoCard from './components/toDoCard/ToDoCard';
 import ToDoItem from './components/toDoItem/ToDoItem';
-import { getTextAreaData, saveTextAreaData } from './data/localStorage';
 
 function App() {
     const [todo, setTodo] = useState('');
@@ -21,11 +21,12 @@ function App() {
     };
 
     const deleteTodo = (todoIndex: any) => {
-        const newTodos = todos.filter(index => {
-            return index !== todoIndex;
+        const newTodos = todos.filter(id => {
+            return id !== todoIndex;
         });
         setTodos(newTodos);
     };
+
     return (
         <div className="app text-center">
             <h1 className="header">ToDo List App</h1>
@@ -46,14 +47,12 @@ function App() {
                     onPressRemoval={() => {
                         deleteTodo(el);
                         setDisabled(false);
+                        setDescription("");
                     }}
                 />
             ))}
             <ToDoCard
                 show={showCard}
-                onPressCansel={() => {setShowCard(false);
-                  setDescription("");
-                }}
                 onHide={() => {
                     setShowCard(false);
                 }}

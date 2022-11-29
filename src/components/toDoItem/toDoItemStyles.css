@@ -15,6 +15,9 @@
 .description{
     margin: 0 0 0 10px;
 }
+.descriptionActive {
+    text-decoration: line-through;
+}
 .btn-edit, .btn-remove{
     outline: none;
     border-width: 0px;

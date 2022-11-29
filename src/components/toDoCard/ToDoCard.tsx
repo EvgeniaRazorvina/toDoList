@@ -7,10 +7,10 @@ type ToDoCardTypes = {
     show?: boolean;
     disabled?: boolean;
     value?: string;
-    onPressCansel?: () => void;
     onHide?: () => void;
     onPressSave?: () => void;
     onChangeText?: (text:any) => void;
+    onHandleChange?: (text:any) => void;
 };
 const ToDoCard: React.FC<ToDoCardTypes> = props => {
     return (
@@ -20,6 +20,7 @@ const ToDoCard: React.FC<ToDoCardTypes> = props => {
             </Modal.Header>
             <Modal.Body>
                 <h6>Описание</h6>
+                <div>
                 <textarea
                     placeholder="Добавьте более подробное описание"
                     className="field"
@@ -27,6 +28,8 @@ const ToDoCard: React.FC<ToDoCardTypes> = props => {
                     onChange={props.onChangeText}
                     value={props.value}
                 />
+                <input type="file" onChange={props.onHandleChange}/>
+                </div>
                 <div className="btn-container">
                     <button
                         type="button"
@@ -34,13 +37,6 @@ const ToDoCard: React.FC<ToDoCardTypes> = props => {
                         onClick={props.onPressSave}
                     >
                         Сохранить
-                    </button>
-                    <button
-                        type="button"
-                        className="button"
-                        onClick={props.onPressCansel}
-                    >
-                        Отмена
                     </button>
                 </div>
             </Modal.Body>

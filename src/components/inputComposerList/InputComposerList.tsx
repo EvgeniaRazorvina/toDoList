@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './inputComposerList.css';
+import './inputComposerListStyles.css';
 
 type InputComposerListProps = {
     onChangeText?: (text: any) => void ;
@@ -8,8 +8,12 @@ type InputComposerListProps = {
 }
 
 const InputComposerList: React.FC<InputComposerListProps> = (props) => {
+const handleSubmit = (e: any) => {
+    e.preventDefault();
+}
+
     return(
-        <div className="input-wrapper d-flex justify-content-center">
+        <form className="input-wrapper d-flex justify-content-center" onSubmit={handleSubmit}>
             <input className="input" 
                 type="text"
                 placeholder='Create a new todo'
@@ -23,7 +27,7 @@ const InputComposerList: React.FC<InputComposerListProps> = (props) => {
             >
                     Add a task
             </button>
-        </div>
+        </form>
     )
 }
 

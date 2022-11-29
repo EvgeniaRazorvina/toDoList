@@ -1,5 +1,5 @@
-import React from 'react';
-import './toDoItem.css';
+import React, { useState } from 'react';
+import './toDoItemStyles.css';
 
 const iconEdit = require ('../../images/iconShelves.png');
 const iconRemove = require('../../images/trash.png');
@@ -11,11 +11,12 @@ type ToDoItemProps = {
 }
 
 const ToDoItem: React.FC<ToDoItemProps> = props => {
+    const [checked, setChecked] = useState(false);
     return(
         <div className='toDoItem-wrapper d-flex justify-content-between'>
             <div className='description-time-wrapper  d-flex justify-content-between'>
-                <input type='checkbox'/>
-                <p className="description">{props.value}</p>
+                <input type='checkbox' onClick={() => setChecked(!checked)}/>
+                <span className= {checked ? "description descriptionActive" : "description"}>{props.value}</span>
             </div>
             <div className="badjes">
                 <button className='btn-edit' onClick={props.onPressEdit}>
